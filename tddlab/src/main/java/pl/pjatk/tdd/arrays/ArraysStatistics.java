@@ -1,5 +1,7 @@
 package pl.pjatk.tdd.arrays;
 
+import java.util.Arrays;
+
 public class ArraysStatistics {
     public static int max(int[] numbers){
         int max =numbers[0];
@@ -12,14 +14,23 @@ public class ArraysStatistics {
     }
 
     public static int min(int[] numbers){
-        return 0;
+        int min =numbers[0];
+        for (int i = 0; i <numbers.length ; i++) {
+            if(numbers[i]<min){
+                min =numbers[i];
+            }
+        }
+        return min;
     }
 
     public static double avg(int[] numbers){
-        return 0;
+        double sum= ArraysStatistics.sum(numbers);
+        return sum/numbers.length;
     }
 
     public static int sum(int[] numbers){
-        return 0;
+        return Arrays.stream(numbers).sum();
     }
+
+
 }
