@@ -2,3 +2,5 @@ CarServiceTest.java
  CarServiceTest
 ClientServiceTest.java
  ClientServiceTest
+PaymentServiceTest.java
+ PaymentServiceTest

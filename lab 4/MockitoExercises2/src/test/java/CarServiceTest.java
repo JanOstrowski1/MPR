@@ -55,7 +55,18 @@ public class CarServiceTest {
         Payment payment=new Payment();
         payment.setAmount(0);
         payment.setType(CAR_PAYMENT);
-        paymentRepository.savePayment(payment);
-
+        carService.savePayment(payment);
     }
+    @Test
+    public void savePaymentShouldSavePaymentToRepository(){
+        CarService carService=new CarService(carCreator,clientRepository,paymentRepository);
+        Payment payment=new Payment();
+        payment.setAmount(120);
+        payment.setType(CAR_PAYMENT);
+
+        carService.savePayment(payment);
+
+        Mockito.verify(paymentRepository).savePayment(payment);
+    }
+
 }
