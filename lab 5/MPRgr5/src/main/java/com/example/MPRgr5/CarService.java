@@ -26,8 +26,9 @@ public class CarService {
         return carRepository.findById(id);
     }
 
-    public void addCar(String name, String model, String plate) {
-        carRepository.save(new Car(name,model,plate));
+    public void addCar(long id ,Car car) {
+        car.setId(id);
+        carRepository.save(car);
     }
 
     public void deleteCar(long id){

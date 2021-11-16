@@ -19,9 +19,9 @@ public class CarController {
         return carService.findById(id);
     }
 
-    @PostMapping("/car/add/{name}/{model}/{plate}")
-    public void createCar(@PathVariable String name,@PathVariable String model,@PathVariable String plate ){
-        carService.addCar(name,model,plate);
+    @PostMapping("/car/add/{id}")
+    public void createCar( @PathVariable long id,@RequestBody Car car){
+        carService.addCar(id ,car);
     }
 
     @DeleteMapping("/car/delete/{id}")
