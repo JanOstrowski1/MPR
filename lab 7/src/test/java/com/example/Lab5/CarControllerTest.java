@@ -24,13 +24,13 @@ public class CarControllerTest {
 
     @Test
     public void getCarReturnCar() throws Exception{
-        Car testCar = new Car(1,"abc","abc","abc");
+        Car testCar = new Car(1,"abc","abc");
         when(carService.getCar(1)).thenReturn(testCar);
 
         mvc.perform(MockMvcRequestBuilders.get("/car/1")
         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{'color':'abc','make':'abc','model':'abc'}"));
+                .andExpect(content().json("{'color':'abc','make':'abc'}"));
 
     }
 }

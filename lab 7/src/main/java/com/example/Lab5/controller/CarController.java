@@ -24,8 +24,8 @@ public class CarController {
     }
 
     @PostMapping("/car/add/{id}/{color}/{make}/{model}")
-    public ResponseEntity addCar(@PathVariable int id, @PathVariable String color, @PathVariable String make, @PathVariable String model) {
-        carService.addCar(id, color, make, model);
+    public ResponseEntity addCar(@PathVariable int id, @PathVariable String color, @PathVariable String make) {
+        carService.addCar(id, color, make);
         return new ResponseEntity(HttpStatus.OK);
     }
 

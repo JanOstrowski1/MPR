@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete car</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<h1>Delete car</h1>
+<form action="#" method="post" th:action="@{/cars/delete}" th:object="${car}" >
+    <table>
+        <tr>
+            <td><label>Id</label></td>
+            <td><input type="number" th:field="${car.id}"></td>
+        </tr>
+
+        <tr>
+            <td><input type="submit" value="Delete"></td>
+        </tr>
+    </table>
+</form>
+<div th:insert="links.html"></div>
+
+</body>
+</html>

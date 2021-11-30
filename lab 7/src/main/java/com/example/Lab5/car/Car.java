@@ -9,15 +9,13 @@ public class Car {
     private int id;
     private String color;
     private String make;
-    private String model;
 
     public Car(){}
 
-    public Car(int id, String color, String make, String model) {
+    public Car(int id, String color, String make) {
         this.id=id;
         this.color = color;
         this.make = make;
-        this.model = model;
     }
 
     public String getColor() {
@@ -34,14 +32,6 @@ public class Car {
 
     public void setMake(String make) {
         this.make = make;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
     }
 
     public int getId() {

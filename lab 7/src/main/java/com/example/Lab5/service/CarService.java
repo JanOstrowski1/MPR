@@ -9,20 +9,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 
 @Component
 public class CarService {
-//    private HashMap<String, Car> map = new HashMap<>();
 
     CarRepository carRepository;
 
     @Autowired
     public CarService(CarRepository carRepository){
         this.carRepository = carRepository;
-        carRepository.save(new Car(1,"red","audi","a4"));
-        carRepository.save(new Car(2,"black","bwm","e36"));
-        carRepository.save(new Car(3,"white","mercedes","C63"));
+        carRepository.save(new Car(1,"blue","fiat"));
+        carRepository.save(new Car(2,"black","mercedes"));
+        carRepository.save(new Car(3,"white","audi"));
     }
 
     public Car getCar(int id) {
@@ -33,11 +33,11 @@ public class CarService {
         return car;
     }
 
-    public void addCar(int id,String color,String make,String model){
+    public void addCar(int id,String color,String make){
         if(carRepository.findById(id) == null){
             throw new CarAlreadyExistException();
         }
-        carRepository.save(new Car(id,color, make, model));
+        carRepository.save(new Car(id,color, make));
     }
 
     public void addCar(int id, Car car){
@@ -69,13 +69,21 @@ public class CarService {
 
             car.setMake(newCar.getMake());
 
-            if(Objects.equals(newCar.getModel(),null)){
-                throw new InvalidDataException();
-            }
+            carRepository.save(car);
 
-            car.setModel(newCar.getModel());
         }else {
             throw new CarNotFoundException();
         }
+    }
+
+    public List<Car> getCarsFromRepo() {
+        return carRepository.findAll();
+    }
+
+    public int insertCarIntoRepo(Car car) {
+        if(carRepository.existsById(car.getId())){
+            throw new CarAlreadyExistException();
+        }
+        return carRepository.save(car).getId();
     }
 }
