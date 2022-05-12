@@ -1,0 +1,11 @@
+table,td,tr,th{
+    border: 3px solid black;
+    width: 350px;
+    height: 50px;
+    font-size: x-large;
+    background: cornflowerblue;
+}
+a{
+    font-size: x-large;
+    color: cornflowerblue;
+}

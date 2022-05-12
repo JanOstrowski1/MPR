@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class TestNowyLad {
+public class NowyLadTest {
     private static WebDriver driver;
 
     @BeforeClass
@@ -30,7 +30,7 @@ public class TestNowyLad {
     }
 
     @Test
-    public void testIfCalculatorReturnsCorrectResult() {
+    public void testNowyLad1() {
 
         submitValues(414, 5.5, 1.8);
 
@@ -40,7 +40,7 @@ public class TestNowyLad {
     }
 
     @Test
-    public void testIfCalculatorReturnsCorrectResult2() {
+    public void testNowyLad2() {
 
         submitValues(100, 9d, 6d);
 
